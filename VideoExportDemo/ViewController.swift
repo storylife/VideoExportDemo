@@ -12,6 +12,20 @@ class ViewController: UIViewController {
         guard let videoURL : URL = Bundle.main.url(forResource: "AutomaticDataProcessingMachines", withExtension: "mp4") else { fatalError() }
         makeSureVideoIsNotCorruptByDisplayingIt(videoURL: videoURL)
         createAVideoAssetTrackAndTryToAccessItsAsset(url: videoURL)
+        codeUsedInStackOverflowQuestion(videoInAppBundleURL: videoURL)
+    }
+    
+    private func codeUsedInStackOverflowQuestion(videoInAppBundleURL: URL) {
+        let asset = AVURLAsset(url: videoInAppBundleURL)
+        let track = asset.tracks(withMediaType: .video).first!
+        assert(track.asset != nil) // passes
+        track.loadValuesAsynchronously(forKeys: [#keyPath(AVAssetTrack.asset)]) {
+            assert(track.asset != nil) // passes
+            DispatchQueue.main.async {
+                assert(track.asset != nil) // FAILS
+                // [...]
+            }
+        }
     }
     
     private func createAVideoAssetTrackAndTryToAccessItsAsset(url: URL) {
@@ -20,6 +34,9 @@ class ViewController: UIViewController {
             print("track.asset: " + (track.asset == nil ? "NOT AVAILABLE" : "YEAH!"))
             track.loadValuesAsynchronously(forKeys: [#keyPath(AVAssetTrack.asset)]) {
                 print("track.asset: " + (track.asset == nil ? "NOT AVAILABLE" : "YEAH!"))
+                DispatchQueue.main.async {
+                    print("track.asset: " + (track.asset == nil ? "NOT AVAILABLE" : "YEAH!"))
+                }
             }
         }
     }
@@ -28,16 +45,11 @@ class ViewController: UIViewController {
         
         // it seems not to matter whether AVAsset or AVURLAsset is used here
         let asset = AVAsset(url: url)
-        print("asset.track: " + (asset.tracks(withMediaType: .video).first == nil ? "NOT " : "") + "AVAILABLE")
-        asset.loadValuesAsynchronously(forKeys: [#keyPath(AVAsset.tracks)]) {
-            print("asset.track: " + (asset.tracks(withMediaType: .video).first == nil ? "NOT " : "") + "AVAILABLE")
-            
-            guard let track = asset.tracks(withMediaType: .video).first else { fatalError() }
-            DispatchQueue.main.async {
-                completion(track)
-            }
-        }
+        guard let track = asset.tracks(withMediaType: .video).first else { fatalError() }
+        print("track.asset: " + (track.asset == nil ? "NOT AVAILABLE" : "YEAH!"))
+        completion(track)
     }
+
     
     private func makeSureVideoIsNotCorruptByDisplayingIt(videoURL: URL) {
         videoPlayerVC.player = AVPlayer(url: videoURL)
