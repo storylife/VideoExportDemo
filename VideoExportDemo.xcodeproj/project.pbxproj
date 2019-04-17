@@ -12,6 +12,8 @@
 		FAE2CE1022666ABA00D13059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE2CE0E22666ABA00D13059 /* Main.storyboard */; };
 		FAE2CE1222666ABD00D13059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE2CE1122666ABD00D13059 /* Assets.xcassets */; };
 		FAE2CE1522666ABD00D13059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE2CE1322666ABD00D13059 /* LaunchScreen.storyboard */; };
+		FAE2CE1D22666B7D00D13059 /* MiniMovie.mov in Resources */ = {isa = PBXBuildFile; fileRef = FAE2CE1C22666B7D00D13059 /* MiniMovie.mov */; };
+		FAE2CE1F2266768100D13059 /* AutomaticDataProcessingMachines.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FAE2CE1E2266767600D13059 /* AutomaticDataProcessingMachines.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		FAE2CE1122666ABD00D13059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAE2CE1422666ABD00D13059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAE2CE1622666ABD00D13059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE2CE1C22666B7D00D13059 /* MiniMovie.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = MiniMovie.mov; sourceTree = "<group>"; };
+		FAE2CE1E2266767600D13059 /* AutomaticDataProcessingMachines.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = AutomaticDataProcessingMachines.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				FAE2CE1122666ABD00D13059 /* Assets.xcassets */,
 				FAE2CE1322666ABD00D13059 /* LaunchScreen.storyboard */,
 				FAE2CE1622666ABD00D13059 /* Info.plist */,
+				FAE2CE1C22666B7D00D13059 /* MiniMovie.mov */,
+				FAE2CE1E2266767600D13059 /* AutomaticDataProcessingMachines.mp4 */,
 			);
 			path = VideoExportDemo;
 			sourceTree = "<group>";
@@ -123,7 +129,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAE2CE1522666ABD00D13059 /* LaunchScreen.storyboard in Resources */,
+				FAE2CE1F2266768100D13059 /* AutomaticDataProcessingMachines.mp4 in Resources */,
 				FAE2CE1222666ABD00D13059 /* Assets.xcassets in Resources */,
+				FAE2CE1D22666B7D00D13059 /* MiniMovie.mov in Resources */,
 				FAE2CE1022666ABA00D13059 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
